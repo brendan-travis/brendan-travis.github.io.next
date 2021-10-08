@@ -1,0 +1,25 @@
+{
+  "name": "portfolio-brendan-travis",
+  "version": "2.0.0",
+  "author": "Brendan Travis",
+  "license": "MIT",
+  "private": true,
+  "description": "A portfolio site showcasing some of the various projects that I have developed.",
+  "scripts": {
+    "prepare": "husky install && husky add .husky/pre-commit \"npm run deploy\"",
+    "start": "concurrently --kill-others \"live-server src/ --no-css-inject\" \"sass -w src/styles.scss src/styles.css\"\"",
+    "deploy": "sass src/styles.scss src/styles.css && rm -rf docs && mkdir docs && cp src/index.html docs/index.html && cp src/styles.css docs/styles.css"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run deploy && git add docs/"
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "ghook": "0.0.2",
+    "husky": "^7.0.2",
+    "live-server": "^1.2.1",
+    "sass": "^1.42.1"
+  }
+}
