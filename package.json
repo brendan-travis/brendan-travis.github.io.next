@@ -8,7 +8,7 @@
   "scripts": {
     "prepare": "husky install && husky add .husky/pre-commit \"npm run deploy\" && husky add .husky/pre-commit \"git add docs/\"",
     "start": "concurrently --kill-others \"live-server src/ --no-css-inject\" \"sass -w src/styles.scss src/styles.css\" \"tsc -w\"",
-    "deploy": "sass src/styles.scss src/styles.css && rm -rf docs && mkdir docs && cp src/index.html docs/index.html && cp src/styles.css docs/styles.css && cp src/index.js docs/index.js"
+    "deploy": "sass src/styles.scss src/styles.css && rm -rf docs && mkdir docs && cp src/index.html docs/index.html && cp src/styles.css docs/styles.css && cp src/index.js docs/index.js && cp src/require.js docs/require.js"
   },
   "devDependencies": {
     "concurrently": "^6.3.0",
