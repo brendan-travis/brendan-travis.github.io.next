@@ -1,12 +1,14 @@
 export class Scroller {
-    scrollDelay = 1500;
+    scrollDelay = 2000;
     scrolling = false;
 
     Setup() {
-        window.addEventListener("wheel", (e : WheelEvent) => this.ScrollSection(e), { passive: false });
+        window.addEventListener("wheel", (e : WheelEvent) => this.WheelScroll(e), { passive: false });
+        window.addEventListener("keydown", (e: KeyboardEvent) => this.KeyScroll(e));
+        window.addEventListener("resize", this.RefreshHash);
     }
 
-    ScrollSection(e: WheelEvent) {
+    WheelScroll(e: WheelEvent) {
         e.preventDefault();
 
         if (this.scrolling) {
@@ -18,35 +20,50 @@ export class Scroller {
             this.scrolling = false;
         }, this.scrollDelay);
 
-        const nextSection = e.deltaY > 0;
+        this.ScrollBetweenSections(e.deltaY > 0)
+    }
 
-        if (nextSection)
-        {
-            if (this.IsInViewport(document.getElementById("section-1"))) {
-                document.getElementById("section-2")?.scrollIntoView();
-            } else if (this.IsInViewport(document.getElementById("section-2"))) {
-                document.getElementById("section-3")?.scrollIntoView();
+    KeyScroll(e: KeyboardEvent) {
+        if (e.key==="ArrowUp" || e.key==="ArrowDown") {
+            this.ScrollBetweenSections(e.key==="ArrowDown");
+        }
+    }
+
+    ScrollBetweenSections(next: boolean) {
+        const currentRoute = window.location.hash;
+
+        if (next) {
+            switch (currentRoute) {
+                case "":
+                case "#landing":
+                    window.location.hash = "#about";
+                    break;
+                case "#about":
+                    window.location.hash = "#dark-souls-checklist";
+                    break;
+                case "#dark-souls-checklist":
+                    window.location.hash = "#contact";
+                    break;
             }
         } else {
-            if (this.IsInViewport(document.getElementById("section-2"))) {
-                document.getElementById("section-1")?.scrollIntoView();
-            } else if (this.IsInViewport(document.getElementById("section-3"))) {
-                document.getElementById("section-2")?.scrollIntoView();
+            switch (currentRoute) {
+                case "#about":
+                    window.location.hash = "#landing";
+                    break;
+                case "#dark-souls-checklist":
+                    window.location.hash = "#about";
+                    break;
+                case "#contact":
+                    window.location.hash = "#dark-souls-checklist";
+                    break;
             }
         }
     }
 
-    private IsInViewport(element: HTMLElement | null) {
-        const rect = element?.getBoundingClientRect();
-        if (!element) {
-            return false;
-        }
-
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
+    RefreshHash() {
+        const currentHash = window.location.hash;
+        window.location.hash = "";
+        window.location.hash = currentHash;
     }
+
 }
