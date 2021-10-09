@@ -1,10 +1,13 @@
 export class Scroller {
     scrollDelay = 2000;
     scrolling = false;
+    touchStart: number;
 
     Setup() {
         window.addEventListener("wheel", (e : WheelEvent) => this.WheelScroll(e), { passive: false });
         window.addEventListener("keydown", (e: KeyboardEvent) => this.KeyScroll(e));
+        window.addEventListener("touchstart", (e: TouchEvent) => this.TouchStart(e), { passive: false });
+        window.addEventListener("touchend", (e: TouchEvent) => this.TouchScroll(e), { passive: false });
         window.addEventListener("resize", this.RefreshHash);
     }
 
@@ -27,6 +30,16 @@ export class Scroller {
         if (e.key==="ArrowUp" || e.key==="ArrowDown") {
             this.ScrollBetweenSections(e.key==="ArrowDown");
         }
+    }
+
+    TouchStart(e: TouchEvent) {
+        e.preventDefault();
+        this.touchStart = e.changedTouches[0].pageY;
+    }
+
+    TouchScroll(e: TouchEvent) {
+        e.preventDefault();
+        this.ScrollBetweenSections(e.changedTouches[0].pageY<this.touchStart);
     }
 
     ScrollBetweenSections(next: boolean) {

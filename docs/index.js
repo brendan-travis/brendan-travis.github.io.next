@@ -5,9 +5,12 @@ define("scroller", ["require", "exports"], function (require, exports) {
     class Scroller {
         scrollDelay = 2000;
         scrolling = false;
+        touchStart;
         Setup() {
             window.addEventListener("wheel", (e) => this.WheelScroll(e), { passive: false });
             window.addEventListener("keydown", (e) => this.KeyScroll(e));
+            window.addEventListener("touchstart", (e) => this.TouchStart(e), { passive: false });
+            window.addEventListener("touchend", (e) => this.TouchScroll(e), { passive: false });
             window.addEventListener("resize", this.RefreshHash);
         }
         WheelScroll(e) {
@@ -25,6 +28,14 @@ define("scroller", ["require", "exports"], function (require, exports) {
             if (e.key === "ArrowUp" || e.key === "ArrowDown") {
                 this.ScrollBetweenSections(e.key === "ArrowDown");
             }
+        }
+        TouchStart(e) {
+            e.preventDefault();
+            this.touchStart = e.changedTouches[0].pageY;
+        }
+        TouchScroll(e) {
+            e.preventDefault();
+            this.ScrollBetweenSections(e.changedTouches[0].pageY < this.touchStart);
         }
         ScrollBetweenSections(next) {
             const currentRoute = window.location.hash;
