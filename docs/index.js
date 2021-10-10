@@ -5,12 +5,13 @@ define("scroller", ["require", "exports"], function (require, exports) {
     class Scroller {
         scrollDelay = 2000;
         scrolling = false;
-        touchStart;
-        Setup() {
+        touchStart = 0;
+        constructor() {
+            const sectionContainer = document.getElementById("sections");
             window.addEventListener("wheel", (e) => this.WheelScroll(e), { passive: false });
             window.addEventListener("keydown", (e) => this.KeyScroll(e));
-            window.addEventListener("touchstart", (e) => this.TouchStart(e), { passive: false });
-            window.addEventListener("touchend", (e) => this.TouchScroll(e), { passive: false });
+            sectionContainer?.addEventListener("touchstart", (e) => this.TouchStart(e), { passive: false });
+            sectionContainer?.addEventListener("touchend", (e) => this.TouchScroll(e), { passive: false });
             window.addEventListener("resize", this.RefreshHash);
         }
         WheelScroll(e) {
@@ -24,9 +25,9 @@ define("scroller", ["require", "exports"], function (require, exports) {
             }, this.scrollDelay);
             this.ScrollBetweenSections(e.deltaY > 0);
         }
-        KeyScroll(e) {
-            if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-                this.ScrollBetweenSections(e.key === "ArrowDown");
+        KeyScroll({ key }) {
+            if (key === "ArrowUp" || key === "ArrowDown") {
+                this.ScrollBetweenSections(key === "ArrowDown");
             }
         }
         TouchStart(e) {
@@ -75,9 +76,59 @@ define("scroller", ["require", "exports"], function (require, exports) {
     }
     exports.Scroller = Scroller;
 });
-define("main", ["require", "exports", "scroller"], function (require, exports, scroller_1) {
+define("page-selector", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    const sectionScroller = new scroller_1.Scroller();
-    sectionScroller.Setup();
+    exports.PageSelector = void 0;
+    class PageSelector {
+        selectedClass = "selected";
+        selectorContainer = "selector-container";
+        constructor() {
+            document.getElementById("selector-i")?.addEventListener("click", (e) => this.Select(e.target, "#landing"));
+            document.getElementById("selector-ii")?.addEventListener("click", (e) => this.Select(e.target, "#about"));
+            document.getElementById("selector-iii")?.addEventListener("click", (e) => this.Select(e.target, "#dark-souls-checklist"));
+            document.getElementById("selector-iv")?.addEventListener("click", (e) => this.Select(e.target, "#contact"));
+            window.addEventListener("hashchange", () => this.SelectFromRoute());
+            this.SelectFromRoute();
+        }
+        Select(button, page) {
+            window.location.href = page;
+            this.UnselectAll();
+            button.classList.add(this.selectedClass);
+        }
+        SelectFromRoute() {
+            this.UnselectAll();
+            const currentRoute = window.location.hash;
+            switch (currentRoute) {
+                case "":
+                case "#landing":
+                    document.getElementById("selector-i")?.classList.add(this.selectedClass);
+                    break;
+                case "#about":
+                    document.getElementById("selector-ii")?.classList.add(this.selectedClass);
+                    break;
+                case "#dark-souls-checklist":
+                    document.getElementById("selector-iii")?.classList.add(this.selectedClass);
+                    break;
+                case "#contact":
+                    document.getElementById("selector-iv")?.classList.add(this.selectedClass);
+                    break;
+            }
+        }
+        UnselectAll() {
+            const selectedItems = document.getElementById(this.selectorContainer)?.getElementsByClassName(this.selectedClass);
+            if (selectedItems) {
+                for (const item of selectedItems) {
+                    item.classList.remove(this.selectedClass);
+                }
+            }
+        }
+    }
+    exports.PageSelector = PageSelector;
+});
+define("main", ["require", "exports", "scroller", "page-selector"], function (require, exports, scroller_1, page_selector_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    new scroller_1.Scroller();
+    new page_selector_1.PageSelector();
 });

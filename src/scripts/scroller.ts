@@ -1,13 +1,15 @@
 export class Scroller {
     scrollDelay = 2000;
     scrolling = false;
-    touchStart: number;
+    touchStart = 0;
 
-    Setup() {
+    constructor() {
+        const sectionContainer = document.getElementById("sections");
+
         window.addEventListener("wheel", (e : WheelEvent) => this.WheelScroll(e), { passive: false });
         window.addEventListener("keydown", (e: KeyboardEvent) => this.KeyScroll(e));
-        window.addEventListener("touchstart", (e: TouchEvent) => this.TouchStart(e), { passive: false });
-        window.addEventListener("touchend", (e: TouchEvent) => this.TouchScroll(e), { passive: false });
+        sectionContainer?.addEventListener("touchstart", (e: TouchEvent) => this.TouchStart(e), { passive: false });
+        sectionContainer?.addEventListener("touchend", (e: TouchEvent) => this.TouchScroll(e), { passive: false });
         window.addEventListener("resize", this.RefreshHash);
     }
 
@@ -26,9 +28,9 @@ export class Scroller {
         this.ScrollBetweenSections(e.deltaY > 0)
     }
 
-    KeyScroll(e: KeyboardEvent) {
-        if (e.key==="ArrowUp" || e.key==="ArrowDown") {
-            this.ScrollBetweenSections(e.key==="ArrowDown");
+    KeyScroll({key}: KeyboardEvent) {
+        if (key==="ArrowUp" || key==="ArrowDown") {
+            this.ScrollBetweenSections(key==="ArrowDown");
         }
     }
 

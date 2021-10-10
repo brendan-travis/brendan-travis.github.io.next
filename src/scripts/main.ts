@@ -1,4 +1,5 @@
 import {Scroller} from "./scroller";
+import {PageSelector} from "./page-selector";
 
-const sectionScroller = new Scroller();
-sectionScroller.Setup();
+new Scroller();
+new PageSelector();

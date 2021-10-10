@@ -10,8 +10,28 @@
   overflow: hidden;
 }
 
-html {
+.smooth-scroll {
   scroll-behavior: smooth;
+}
+
+.page-selector {
+  position: fixed;
+  top: 50%;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.page-selector button {
+  background: transparent;
+  border: solid 1px transparent;
+  cursor: pointer;
+  margin: 8px;
+  border-radius: 16px;
+  height: 32px;
+  width: 32px;
+}
+.page-selector button.selected {
+  border: solid 1px #eeeeee;
 }
 
 #landing {
