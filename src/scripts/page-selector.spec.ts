@@ -20,7 +20,7 @@ describe("PageSelector", () => {
 
     afterEach(() => {
         document.body.innerHTML = "";
-    })
+    });
 
     describe("constructor", () => {
         it("Constructs without errors", () => {
@@ -65,7 +65,7 @@ describe("PageSelector", () => {
             new PageSelector().SelectFromRoute();
 
             // Assert
-            expect(document.getElementById("selector-i").classList).toContain("selected");
+            expect(document.getElementById("selector-i")!.classList).toContain("selected");
         });
 
         it("Selects no objects when the expected page is an unexpected value", () => {
@@ -76,10 +76,10 @@ describe("PageSelector", () => {
             new PageSelector().SelectFromRoute();
 
             // Assert
-            expect(document.getElementById("selector-i").classList).not.toContain("selected");
-            expect(document.getElementById("selector-ii").classList).not.toContain("selected");
-            expect(document.getElementById("selector-iii").classList).not.toContain("selected");
-            expect(document.getElementById("selector-iv").classList).not.toContain("selected");
+            expect(document.getElementById("selector-i")!.classList).not.toContain("selected");
+            expect(document.getElementById("selector-ii")!.classList).not.toContain("selected");
+            expect(document.getElementById("selector-iii")!.classList).not.toContain("selected");
+            expect(document.getElementById("selector-iv")!.classList).not.toContain("selected");
         });
     });
 
@@ -91,10 +91,10 @@ describe("PageSelector", () => {
             const selectorIII = document.getElementById("selector-iii");
             const selectorIV = document.getElementById("selector-iv");
 
-            selectorI.classList.add("selected");
-            selectorII.classList.add("selected");
-            selectorIII.classList.add("selected");
-            selectorIV.classList.add("selected");
+            selectorI!.classList.add("selected");
+            selectorII!.classList.add("selected");
+            selectorIII!.classList.add("selected");
+            selectorIV!.classList.add("selected");
 
             // Act
             new PageSelector().UnselectAll();
