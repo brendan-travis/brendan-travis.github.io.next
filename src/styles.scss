@@ -1,8 +1,9 @@
-@import "styles/variables";
 @import "styles/utils";
+@import "styles/variables";
 
-@import "styles/components/page-selector";
 @import "styles/components/frame";
+@import "styles/components/page-indicator";
+@import "styles/components/scroll-indicator";
 
 html {
     background: #090d13;

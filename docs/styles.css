@@ -14,39 +14,6 @@
   scroll-behavior: smooth;
 }
 
-.page-selector {
-  position: fixed;
-  left: 40px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 10;
-}
-@media (max-width: 768px) {
-  .page-selector {
-    left: 8px;
-  }
-}
-.page-selector div {
-  background: #eeeeee;
-  padding: 0;
-  border: 0;
-  margin-top: 12px;
-  margin-left: 8px;
-  margin-bottom: 11px;
-  height: 1px;
-  width: 32px;
-  color: #eeeeee;
-  transition: width ease-in-out 0.5s;
-}
-.page-selector div.selected {
-  width: 48px;
-}
-.page-selector button.clickable {
-  cursor: pointer;
-}
-
 .frame-container {
   position: absolute;
   height: 100%;
@@ -149,6 +116,61 @@
   }
 }
 
+.page-indicator {
+  position: fixed;
+  left: 48px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+}
+@media (max-width: 768px) {
+  .page-indicator {
+    left: 16px;
+  }
+}
+.page-indicator div {
+  background: #eeeeee;
+  padding: 0;
+  border: 0;
+  margin-top: 12px;
+  margin-left: 8px;
+  margin-bottom: 11px;
+  height: 1px;
+  width: 16px;
+  color: #eeeeee;
+  transition: width ease-in-out 0.5s;
+}
+.page-indicator div.selected {
+  width: 32px;
+}
+.page-indicator button.clickable {
+  cursor: pointer;
+}
+
+.down-arrow {
+  height: 24px;
+  fill: #eeeeee;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 4px;
+  width: 100%;
+  animation: bounce-bottom 2s ease-in-out infinite;
+}
+
+@keyframes bounce-bottom {
+  0% {
+    bottom: 8px;
+  }
+  50% {
+    bottom: 24px;
+  }
+  100% {
+    bottom: 8px;
+  }
+}
 html {
   background: #090d13;
 }

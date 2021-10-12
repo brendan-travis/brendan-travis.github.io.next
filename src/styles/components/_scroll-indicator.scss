@@ -1,0 +1,24 @@
+@import "../variables";
+
+.down-arrow {
+  height: 24px;
+  fill: $col-base-90;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 4px;
+  width: 100%;
+  animation: bounce-bottom 2s ease-in-out infinite;
+}
+
+@keyframes bounce-bottom {
+  0% {
+    bottom: 8px;
+  }
+  50% {
+    bottom: 24px;
+  }
+  100% {
+    bottom: 8px;
+  }
+}
