@@ -1,6 +1,7 @@
 export class Scroller {
-    scrollDelay = 2000;
+    scrollDelay = 200;
     scrolling = false;
+    scrollTimer: NodeJS.Timeout | undefined;
     touchStart = 0;
 
     constructor() {
@@ -16,14 +17,19 @@ export class Scroller {
     WheelScroll(e: WheelEvent) {
         e.preventDefault();
 
+        if(this.scrollTimer){
+            clearTimeout(this.scrollTimer);
+        }
+
+        this.scrollTimer = setTimeout(() => {
+            this.scrolling = false;
+        }, this.scrollDelay);
+
         if (this.scrolling) {
             return;
         }
 
         this.scrolling = true;
-        setTimeout(() => {
-            this.scrolling = false;
-        }, this.scrollDelay);
 
         this.ScrollBetweenSections(e.deltaY > 0)
     }

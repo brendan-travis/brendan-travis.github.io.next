@@ -48,8 +48,9 @@ define("scroller", ["require", "exports"], function (require, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Scroller = void 0;
     class Scroller {
-        scrollDelay = 2000;
+        scrollDelay = 200;
         scrolling = false;
+        scrollTimer;
         touchStart = 0;
         constructor() {
             const sectionContainer = document.getElementById("sections");
@@ -61,13 +62,16 @@ define("scroller", ["require", "exports"], function (require, exports) {
         }
         WheelScroll(e) {
             e.preventDefault();
+            if (this.scrollTimer) {
+                clearTimeout(this.scrollTimer);
+            }
+            this.scrollTimer = setTimeout(() => {
+                this.scrolling = false;
+            }, this.scrollDelay);
             if (this.scrolling) {
                 return;
             }
             this.scrolling = true;
-            setTimeout(() => {
-                this.scrolling = false;
-            }, this.scrollDelay);
             this.ScrollBetweenSections(e.deltaY > 0);
         }
         KeyScroll({ key }) {
