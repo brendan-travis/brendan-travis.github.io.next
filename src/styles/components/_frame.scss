@@ -1,0 +1,112 @@
+@import "../variables";
+
+.frame-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  $frame-border: 48px;
+  $frame-border-mobile: 16px;
+
+  .top-frame {
+    width: 0;
+    height: 1px;
+    background: $col-base-90;
+    position: absolute;
+
+    top: $frame-border;
+    left: $frame-border;
+    @media (max-width: $mobile) {
+      top: $frame-border-mobile;
+      left: $frame-border-mobile;
+    }
+  }
+
+  .bottom-frame {
+    width: 0;
+    height: 1px;
+    background: $col-base-90;
+    position: absolute;
+
+    bottom: $frame-border;
+    right: $frame-border;
+    @media (max-width: $mobile) {
+      bottom: $frame-border-mobile;
+      right: $frame-border-mobile;
+    }
+  }
+
+  .left-frame {
+    height: 0;
+    width: 1px;
+    background: $col-base-90;
+    position: absolute;
+
+    left: $frame-border;
+    bottom: $frame-border;
+    @media (max-width: $mobile) {
+      left: $frame-border-mobile;
+      bottom: $frame-border-mobile;
+    }
+  }
+
+  .right-frame {
+    height: 0;
+    width: 1px;
+    background: $col-base-90;
+    position: absolute;
+
+    right: $frame-border;
+    top: $frame-border;
+    @media (max-width: $mobile) {
+      right: $frame-border-mobile;
+      top: $frame-border-mobile;
+    }
+  }
+
+  .top-frame.animate, .bottom-frame.animate {
+    animation: draw-horizontal 1.5s ease-in-out 1 normal forwards;
+  }
+
+  .left-frame.animate, .right-frame.animate {
+    animation: draw-vertical 1.5s ease-in-out 1 normal forwards;
+  }
+
+  @keyframes draw-horizontal {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: calc(100vw - (2 * #{$frame-border}));
+    }
+  }
+
+  @keyframes draw-vertical {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: calc(100vh - (2 * #{$frame-border}));
+    }
+  }
+
+  @media (max-width: $mobile) {
+    @keyframes draw-horizontal {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: calc(100vw - (2 * #{$frame-border-mobile}));
+      }
+    }
+
+    @keyframes draw-vertical {
+      0% {
+        height: 0;
+      }
+      100% {
+        height: calc(100vh - (2 * #{$frame-border-mobile}));
+      }
+    }
+  }
+}

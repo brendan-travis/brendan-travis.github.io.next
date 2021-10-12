@@ -2,19 +2,8 @@
 @import "styles/utils";
 
 @import "styles/components/page-selector";
+@import "styles/components/frame";
 
-#landing {
-    background: #33ffc7;
-}
-
-#about {
-    background: #338bff;
-}
-
-#dark-souls-checklist {
-    background: #9c33ff;
-}
-
-#contact {
-    background: #ff3358;
+html {
+    background: #090d13;
 }

@@ -34,20 +34,110 @@
   border: solid 1px #eeeeee;
 }
 
-#landing {
-  background: #33ffc7;
+.frame-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.frame-container .top-frame {
+  width: 0;
+  height: 1px;
+  background: #eeeeee;
+  position: absolute;
+  top: 48px;
+  left: 48px;
+}
+@media (max-width: 768px) {
+  .frame-container .top-frame {
+    top: 16px;
+    left: 16px;
+  }
+}
+.frame-container .bottom-frame {
+  width: 0;
+  height: 1px;
+  background: #eeeeee;
+  position: absolute;
+  bottom: 48px;
+  right: 48px;
+}
+@media (max-width: 768px) {
+  .frame-container .bottom-frame {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+.frame-container .left-frame {
+  height: 0;
+  width: 1px;
+  background: #eeeeee;
+  position: absolute;
+  left: 48px;
+  bottom: 48px;
+}
+@media (max-width: 768px) {
+  .frame-container .left-frame {
+    left: 16px;
+    bottom: 16px;
+  }
+}
+.frame-container .right-frame {
+  height: 0;
+  width: 1px;
+  background: #eeeeee;
+  position: absolute;
+  right: 48px;
+  top: 48px;
+}
+@media (max-width: 768px) {
+  .frame-container .right-frame {
+    right: 16px;
+    top: 16px;
+  }
+}
+.frame-container .top-frame.animate, .frame-container .bottom-frame.animate {
+  animation: draw-horizontal 1.5s ease-in-out 1 normal forwards;
+}
+.frame-container .left-frame.animate, .frame-container .right-frame.animate {
+  animation: draw-vertical 1.5s ease-in-out 1 normal forwards;
+}
+@keyframes draw-horizontal {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: calc(100vw - (2 * 48px));
+  }
+}
+@keyframes draw-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: calc(100vh - (2 * 48px));
+  }
+}
+@media (max-width: 768px) {
+  @keyframes draw-horizontal {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: calc(100vw - (2 * 16px));
+    }
+  }
+  @keyframes draw-vertical {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: calc(100vh - (2 * 16px));
+    }
+  }
 }
 
-#about {
-  background: #338bff;
-}
-
-#dark-souls-checklist {
-  background: #9c33ff;
-}
-
-#contact {
-  background: #ff3358;
+html {
+  background: #090d13;
 }
 
 /*# sourceMappingURL=styles.css.map */

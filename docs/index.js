@@ -1,3 +1,48 @@
+define("animation-manager", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.AnimationManager = void 0;
+    class AnimationManager {
+        animationClass = "animate";
+        animationDelay = 500;
+        constructor() {
+            window.addEventListener("hashchange", () => this.SetAnimationsForCurrentPage());
+            window.addEventListener("load", () => this.SetAnimationsForCurrentPage(0));
+        }
+        SetAnimationsForCurrentPage(animationDelay) {
+            const currentHash = window.location.hash;
+            switch (currentHash) {
+                case "#about":
+                    this.RemoveFrameAnimations("about");
+                    setTimeout(() => this.ApplyFrameAnimations("about"), animationDelay ?? this.animationDelay);
+                    break;
+                case "#dark-souls-checklist":
+                    this.RemoveFrameAnimations("dark-souls-checklist");
+                    setTimeout(() => this.ApplyFrameAnimations("dark-souls-checklist"), animationDelay ?? this.animationDelay);
+                    break;
+                case "#contact":
+                    this.RemoveFrameAnimations("contact");
+                    setTimeout(() => this.ApplyFrameAnimations("contact"), animationDelay ?? this.animationDelay);
+                    break;
+            }
+        }
+        RemoveFrameAnimations(sectionId) {
+            const section = document.getElementById(sectionId);
+            section?.getElementsByClassName("top-frame")[0]?.classList.remove(this.animationClass);
+            section?.getElementsByClassName("bottom-frame")[0]?.classList.remove(this.animationClass);
+            section?.getElementsByClassName("left-frame")[0]?.classList.remove(this.animationClass);
+            section?.getElementsByClassName("right-frame")[0]?.classList.remove(this.animationClass);
+        }
+        ApplyFrameAnimations(sectionId) {
+            const section = document.getElementById(sectionId);
+            section?.getElementsByClassName("top-frame")[0]?.classList.add(this.animationClass);
+            section?.getElementsByClassName("bottom-frame")[0]?.classList.add(this.animationClass);
+            section?.getElementsByClassName("left-frame")[0]?.classList.add(this.animationClass);
+            section?.getElementsByClassName("right-frame")[0]?.classList.add(this.animationClass);
+        }
+    }
+    exports.AnimationManager = AnimationManager;
+});
 define("scroller", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -126,9 +171,10 @@ define("page-selector", ["require", "exports"], function (require, exports) {
     }
     exports.PageSelector = PageSelector;
 });
-define("main", ["require", "exports", "scroller", "page-selector"], function (require, exports, scroller_1, page_selector_1) {
+define("main", ["require", "exports", "scroller", "page-selector", "animation-manager"], function (require, exports, scroller_1, page_selector_1, animation_manager_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     new scroller_1.Scroller();
     new page_selector_1.PageSelector();
+    new animation_manager_1.AnimationManager();
 });
