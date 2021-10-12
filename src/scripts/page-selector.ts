@@ -1,21 +1,11 @@
 export class PageSelector {
+    private clickableClass = "clickable";
     private selectedClass = "selected";
     private selectorContainer = "selector-container";
 
     constructor() {
-        document.getElementById("selector-i")?.addEventListener("click", (e: Event) => this.Select(e.target as HTMLButtonElement, "#landing"));
-        document.getElementById("selector-ii")?.addEventListener("click", (e: Event) => this.Select(e.target as HTMLButtonElement, "#about"));
-        document.getElementById("selector-iii")?.addEventListener("click", (e: Event) => this.Select(e.target as HTMLButtonElement, "#dark-souls-checklist"));
-        document.getElementById("selector-iv")?.addEventListener("click", (e: Event) => this.Select(e.target as HTMLButtonElement, "#contact"));
         window.addEventListener("hashchange", () => this.SelectFromRoute());
-
         this.SelectFromRoute();
-    }
-
-    Select(button: HTMLButtonElement, page: string) {
-        window.location.href = page;
-        this.UnselectAll();
-        button.classList.add(this.selectedClass);
     }
 
     SelectFromRoute() {

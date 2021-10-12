@@ -29,33 +29,6 @@ describe("PageSelector", () => {
         });
     });
 
-    describe("Select", () => {
-        it("Sets window href to the page input parameter", () => {
-            // Arrange
-            const sut = new PageSelector();
-            const button = document.getElementById("selector-iii") as HTMLButtonElement;
-            const page = "page-number-3-for-testing-purposes";
-
-            // Act
-            sut.Select(button, page);
-
-            // Act
-            expect(window.location.href).toBe(page);
-        });
-
-        it("Adds the selected class to the button that was passed in", () => {
-            // Arrange
-            const button = document.getElementById("selector-iii") as HTMLButtonElement;
-            const page = "page-number-3-for-testing-purposes";
-
-            // Act
-            new PageSelector().Select(button, page);
-
-            // Act
-            expect(button.classList).toContain("selected");
-        });
-    });
-
     describe("SelectFromRoute", () => {
         it("Selects the expected selector when location hash is valid", () => {
             // Arrange

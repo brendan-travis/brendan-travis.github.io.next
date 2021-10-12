@@ -1,5 +1,5 @@
 export class Scroller {
-    scrollDelay = 200;
+    scrollDelay = 500;
     scrolling = false;
     scrollTimer: NodeJS.Timeout | undefined;
     touchStart = 0;

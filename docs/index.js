@@ -48,7 +48,7 @@ define("scroller", ["require", "exports"], function (require, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Scroller = void 0;
     class Scroller {
-        scrollDelay = 200;
+        scrollDelay = 500;
         scrolling = false;
         scrollTimer;
         touchStart = 0;
@@ -130,20 +130,12 @@ define("page-selector", ["require", "exports"], function (require, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.PageSelector = void 0;
     class PageSelector {
+        clickableClass = "clickable";
         selectedClass = "selected";
         selectorContainer = "selector-container";
         constructor() {
-            document.getElementById("selector-i")?.addEventListener("click", (e) => this.Select(e.target, "#landing"));
-            document.getElementById("selector-ii")?.addEventListener("click", (e) => this.Select(e.target, "#about"));
-            document.getElementById("selector-iii")?.addEventListener("click", (e) => this.Select(e.target, "#dark-souls-checklist"));
-            document.getElementById("selector-iv")?.addEventListener("click", (e) => this.Select(e.target, "#contact"));
             window.addEventListener("hashchange", () => this.SelectFromRoute());
             this.SelectFromRoute();
-        }
-        Select(button, page) {
-            window.location.href = page;
-            this.UnselectAll();
-            button.classList.add(this.selectedClass);
         }
         SelectFromRoute() {
             this.UnselectAll();
