@@ -1,0 +1,19 @@
+@import "../variables";
+
+.reveal {
+  position: fixed;
+  height: 0;
+  width: 100%;
+  background: $col-background-dark;
+  z-index: 100;
+  animation: reveal 1s ease-in-out;
+}
+
+@keyframes reveal {
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 0;
+  }
+}

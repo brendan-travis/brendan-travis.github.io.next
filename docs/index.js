@@ -53,11 +53,10 @@ define("scroller", ["require", "exports"], function (require, exports) {
         scrollTimer;
         touchStart = 0;
         constructor() {
-            const sectionContainer = document.getElementById("sections");
             window.addEventListener("wheel", (e) => this.WheelScroll(e), { passive: false });
             window.addEventListener("keydown", (e) => this.KeyScroll(e));
-            sectionContainer?.addEventListener("touchstart", (e) => this.TouchStart(e), { passive: false });
-            sectionContainer?.addEventListener("touchend", (e) => this.TouchScroll(e), { passive: false });
+            window.addEventListener("touchstart", (e) => this.TouchStart(e), { passive: false });
+            window.addEventListener("touchend", (e) => this.TouchScroll(e), { passive: false });
             window.addEventListener("resize", this.RefreshHash);
         }
         WheelScroll(e) {

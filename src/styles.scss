@@ -1,10 +1,10 @@
+@import "styles/fonts";
 @import "styles/utils";
 @import "styles/variables";
 
 @import "styles/components/frame";
+@import "styles/components/headings";
+@import "styles/components/page";
 @import "styles/components/page-indicator";
+@import "styles/components/reveal";
 @import "styles/components/scroll-indicator";
-
-html {
-    background: #090d13;
-}

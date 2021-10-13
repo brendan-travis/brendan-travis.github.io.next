@@ -5,12 +5,10 @@ export class Scroller {
     touchStart = 0;
 
     constructor() {
-        const sectionContainer = document.getElementById("sections");
-
         window.addEventListener("wheel", (e : WheelEvent) => this.WheelScroll(e), { passive: false });
         window.addEventListener("keydown", (e: KeyboardEvent) => this.KeyScroll(e));
-        sectionContainer?.addEventListener("touchstart", (e: TouchEvent) => this.TouchStart(e), { passive: false });
-        sectionContainer?.addEventListener("touchend", (e: TouchEvent) => this.TouchScroll(e), { passive: false });
+        window.addEventListener("touchstart", (e: TouchEvent) => this.TouchStart(e), { passive: false });
+        window.addEventListener("touchend", (e: TouchEvent) => this.TouchScroll(e), { passive: false });
         window.addEventListener("resize", this.RefreshHash);
     }
 

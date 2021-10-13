@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Montserrat&display=swap");
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
 .m-0 {
   margin: 0;
 }
@@ -116,6 +121,44 @@
   }
 }
 
+.heading {
+  color: #eeeeee;
+  position: absolute;
+  left: 20%;
+  user-select: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+.heading h1 {
+  font-family: "Architects Daughter", cursive;
+  font-size: 5rem;
+}
+.heading p {
+  font-size: 1.5rem;
+}
+@media (max-width: 768px) {
+  .heading {
+    left: 25%;
+  }
+  .heading h1 {
+    font-size: 2rem;
+  }
+  .heading p {
+    font-size: 1rem;
+  }
+}
+
+.background {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(0deg, #090d13 0%, #1a2334 100%);
+}
+
 .page-indicator {
   position: fixed;
   left: 48px;
@@ -149,6 +192,23 @@
   cursor: pointer;
 }
 
+.reveal {
+  position: fixed;
+  height: 0;
+  width: 100%;
+  background: #090d13;
+  z-index: 100;
+  animation: reveal 1s ease-in-out;
+}
+
+@keyframes reveal {
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 0;
+  }
+}
 .down-arrow {
   height: 24px;
   fill: #eeeeee;
@@ -170,9 +230,6 @@
   100% {
     bottom: 8px;
   }
-}
-html {
-  background: #090d13;
 }
 
 /*# sourceMappingURL=styles.css.map */
