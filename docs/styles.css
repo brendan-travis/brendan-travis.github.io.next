@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Comfortaa:wght@300&family=Montserrat&display=swap");
 html {
   font-family: "Montserrat", sans-serif;
 }
@@ -121,7 +121,7 @@ html {
   }
 }
 
-.heading {
+.landing-heading {
   color: #eeeeee;
   position: absolute;
   left: 20%;
@@ -132,22 +132,53 @@ html {
   height: 100%;
   justify-content: center;
 }
-.heading h1 {
+.landing-heading h1 {
   font-family: "Architects Daughter", cursive;
   font-size: 5rem;
 }
-.heading p {
+.landing-heading p {
   font-size: 1.5rem;
 }
 @media (max-width: 768px) {
-  .heading {
+  .landing-heading {
     left: 25%;
   }
-  .heading h1 {
+  .landing-heading h1 {
     font-size: 2rem;
   }
-  .heading p {
+  .landing-heading p {
     font-size: 1rem;
+  }
+}
+
+.page-heading {
+  color: #eeeeee;
+  position: absolute;
+  user-select: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: -100%;
+  transition: left 1s;
+}
+.page-heading h2 {
+  font-family: "Comfortaa", cursive;
+  font-size: 4rem;
+}
+@media (max-width: 768px) {
+  .page-heading h2 {
+    font-size: 1rem;
+  }
+}
+
+.selected-section .page-heading {
+  left: 15%;
+}
+@media (max-width: 768px) {
+  .selected-section .page-heading {
+    left: 20%;
   }
 }
 

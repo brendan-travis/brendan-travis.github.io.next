@@ -11,16 +11,24 @@ define("animation-manager", ["require", "exports"], function (require, exports) 
         }
         SetAnimationsForCurrentPage(animationDelay) {
             const currentHash = window.location.hash;
+            document.getElementsByClassName("selected-section")[0]?.classList.remove("selected-section");
             switch (currentHash) {
+                case "":
+                case "#landing":
+                    document.getElementById("landing")?.classList.add("selected-section");
+                    break;
                 case "#about":
+                    document.getElementById("about")?.classList.add("selected-section");
                     this.RemoveFrameAnimations("about");
                     setTimeout(() => this.ApplyFrameAnimations("about"), animationDelay ?? this.animationDelay);
                     break;
                 case "#dark-souls-checklist":
+                    document.getElementById("dark-souls-checklist")?.classList.add("selected-section");
                     this.RemoveFrameAnimations("dark-souls-checklist");
                     setTimeout(() => this.ApplyFrameAnimations("dark-souls-checklist"), animationDelay ?? this.animationDelay);
                     break;
                 case "#contact":
+                    document.getElementById("contact")?.classList.add("selected-section");
                     this.RemoveFrameAnimations("contact");
                     setTimeout(() => this.ApplyFrameAnimations("contact"), animationDelay ?? this.animationDelay);
                     break;

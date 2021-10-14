@@ -1,6 +1,6 @@
 @import "../_variables.scss";
 
-.heading {
+.landing-heading {
   color: $col-main;
   position: absolute;
   left: 20%;
@@ -12,7 +12,7 @@
   justify-content: center;
 
   h1 {
-    font-family: 'Architects Daughter', cursive;
+    font-family: "Architects Daughter", cursive;
     font-size: 5rem;
   }
 
@@ -29,6 +29,40 @@
 
     p {
       font-size: 1rem;
+    }
+  }
+}
+
+.page-heading {
+  color: $col-main;
+  position: absolute;
+  user-select: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: -100%;
+  transition: left 1s;
+
+  h2 {
+    font-family: "Comfortaa", cursive;
+    font-size: 4rem;
+  }
+
+  @media (max-width: $mobile) {
+    h2 {
+      font-size: 1rem;
+    }
+  }
+}
+
+.selected-section {
+  .page-heading {
+    left: 15%;
+
+    @media (max-width: $mobile) {
+      left: 20%;
     }
   }
 }
