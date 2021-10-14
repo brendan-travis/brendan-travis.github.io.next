@@ -1,5 +1,4 @@
 export class PageSelector {
-    private clickableClass = "clickable";
     private selectedClass = "selected";
     private selectorContainer = "selector-container";
 

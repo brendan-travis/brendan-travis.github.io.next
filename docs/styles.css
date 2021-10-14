@@ -192,6 +192,17 @@ html {
   cursor: pointer;
 }
 
+.particle {
+  position: absolute;
+  border-radius: 100px;
+}
+
+#particle-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
 .reveal {
   position: fixed;
   height: 0;
