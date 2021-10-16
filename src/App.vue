@@ -30,9 +30,9 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import PageIndicator from "./components/PageIndicator.vue";
-import Particles from "@/components/Particles.vue";
-import Frame from "@/components/Frame.vue";
+import PageIndicator from "./components/page-indicator.vue";
+import Particles from "@/components/particles.vue";
+import Frame from "@/components/frame.vue";
 import { Scroller } from "@/scripts/scroller";
 
 @Options({

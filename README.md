@@ -1,29 +1,27 @@
-# next
+# next // brendan-travis.github.io
 
-## Project setup
-```
-npm install
-```
+View the deployed version here: https://brendan-travis.github.io/next/
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Project Commands
 
-### Compiles and minifies for production
-```
-npm run build
-```
+`npm install` - Prepares the project and installs the git hooks
 
-### Run your unit tests
-```
-npm run test:unit
-```
+`npm run start` - Launch the site in development mode with hot reload
 
-### Lints and fixes files
-```
-npm run lint
-```
+`npm run deploy` - Publishes a production version of the site in the docs folder
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+`npm run test` - Runs the test suite
+
+`npm run lint` - Runs the linter
+
+---
+
+## Git hooks
+
+Pre-commit:
+- npm run lint
+- npm run deploy
+- git add docs/
+
+Pre-push:
+- npm run test
