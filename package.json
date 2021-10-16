@@ -1,31 +1,40 @@
 {
-  "name": "portfolio-brendan-travis",
-  "version": "2.0.0",
-  "author": "Brendan Travis",
-  "license": "MIT",
+  "name": "next",
+  "version": "0.1.0",
   "private": true,
-  "description": "A portfolio site showcasing some of the various projects that I have developed.",
   "scripts": {
-    "prepare": "husky install && husky add .husky/pre-commit \"npm run deploy\" && husky add .husky/pre-commit \"git add docs/\" && husky add .husky/pre-push \"npm run test\"",
-    "start": "concurrently --kill-others \"live-server src/ --no-css-inject\" \"sass -w src/styles.scss src/styles.css\" \"tsc -w\"",
-    "deploy": "sass src/styles.scss src/styles.css && rm -rf docs && mkdir docs && cp src/index.html docs/index.html && cp src/styles.css docs/styles.css && cp src/index.js docs/index.js && cp src/require.js docs/require.js",
-    "test": "jest"
+    "prepare": "husky install",
+    "start": "vue-cli-service serve",
+    "deploy": "vue-cli-service build --dest docs && cp docs/index.html docs/404.html",
+    "test": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint"
   },
-  "jest": {
-    "testEnvironment": "jsdom"
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0",
+    "vue-class-component": "^8.0.0-0"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "@babel/preset-typescript": "^7.15.0",
-    "@types/jest": "^27.0.2",
-    "babel-jest": "^27.2.5",
-    "concurrently": "^6.3.0",
-    "ghook": "0.0.2",
-    "husky": "^7.0.2",
-    "jest": "^27.2.5",
-    "live-server": "^1.2.1",
-    "sass": "^1.42.1",
-    "typescript": "^4.4.3"
+    "@types/jest": "^24.0.19",
+    "@types/node": "^16.11.0",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "@vue/test-utils": "^2.0.0-0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.0.0",
+    "prettier": "^2.2.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "typescript": "~4.1.5",
+    "vue-jest": "^5.0.0-0"
   }
 }

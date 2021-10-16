@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+.husky/
+
+src/**/*.css
+*.css.map
+
+src/**/*.js
+!src/require.js
