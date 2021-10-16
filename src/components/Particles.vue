@@ -103,5 +103,6 @@ export default class Particles extends Vue {
   position: fixed;
   height: 100%;
   width: 100%;
+  z-index: -1;
 }
 </style>

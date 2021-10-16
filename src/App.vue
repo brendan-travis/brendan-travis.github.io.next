@@ -13,6 +13,7 @@
     <div class="page-heading">
       <h2>About me</h2>
     </div>
+    <skills-list></skills-list>
   </section>
   <section id="dark-souls-checklist" class="h-100vh">
     <frame></frame>
@@ -34,9 +35,11 @@ import PageIndicator from "./components/page-indicator.vue";
 import Particles from "@/components/particles.vue";
 import Frame from "@/components/frame.vue";
 import { Scroller } from "@/scripts/scroller";
+import SkillsList from "@/components/skills-list.vue";
 
 @Options({
   components: {
+    SkillsList,
     Frame,
     Particles,
     PageIndicator,
@@ -110,6 +113,7 @@ export default class App extends Vue {
   justify-content: center;
   left: -100%;
   transition: left 1s;
+  z-index: 5;
 
   h2 {
     font-family: "Comfortaa", cursive;
