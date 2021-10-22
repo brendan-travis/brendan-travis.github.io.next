@@ -1,4 +1,4 @@
-import PageIndicator from "@/components/page-indicator.vue";
+import PageIndicator from "@/moonlight/components/page-indicator.vue";
 import { shallowMount } from "@vue/test-utils";
 
 describe("Page Indicator Component", () => {

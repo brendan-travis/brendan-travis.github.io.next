@@ -1,4 +1,4 @@
-import Frame from "@/components/frame.vue";
+import Frame from "@/moonlight/components/frame.vue";
 import { shallowMount } from "@vue/test-utils";
 
 describe("Frame Component", () => {

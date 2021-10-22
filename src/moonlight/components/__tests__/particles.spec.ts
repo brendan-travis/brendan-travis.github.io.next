@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import Particles from "@/components/particles.vue";
+import Particles from "@/moonlight/components/particles.vue";
 
 describe("Particles Component", () => {
   beforeEach(() => {

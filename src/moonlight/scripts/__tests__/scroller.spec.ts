@@ -1,4 +1,4 @@
-import { Scroller } from "@/scripts/scroller";
+import { Scroller } from "@/moonlight/scripts/scroller";
 
 describe("Scroller", () => {
   beforeEach(() => {

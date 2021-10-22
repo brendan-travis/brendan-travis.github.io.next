@@ -98,7 +98,7 @@ export default class Frame extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "./src/styles/variables";
+@import "../styles/variables";
 
 .frame-container {
   position: absolute;
