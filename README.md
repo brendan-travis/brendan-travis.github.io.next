@@ -1,6 +1,6 @@
 # next // brendan-travis.github.io
 
-View the deployed version here: https://brendan-travis.github.io/next/
+View the deployed version here: https://brendan-travis.github.io/brendan-travis.github.io.next/
 
 ## Project Commands
 
