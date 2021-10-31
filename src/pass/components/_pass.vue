@@ -1,17 +1,19 @@
 <template>
+  <landing-page></landing-page>
   <welcome></welcome>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import Welcome from "./welcome.vue";
+import { defineComponent } from "vue";
+import welcome from "@/pass/components/welcome.vue";
+import landingPage from "@/pass/components/landing-page.vue";
 
-@Options({
+export default defineComponent({
   components: {
-    Welcome,
+    landingPage,
+    welcome,
   },
-})
-export default class Pass extends Vue {}
+});
 </script>
 
 <style lang="scss">
@@ -21,5 +23,10 @@ export default class Pass extends Vue {}
 html {
   background: $col-base-3;
   color: $col-base-1;
+  user-select: none;
+}
+
+body {
+  margin: 0;
 }
 </style>
