@@ -1,14 +1,17 @@
 <template>
-  <moonlight></moonlight>
+  <!--  <moonlight></moonlight>-->
+  <pass></pass>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Moonlight from "@/moonlight/components/_moonlight.vue";
+// import Moonlight from "@/moonlight/components/_moonlight.vue";
+import Pass from "@/pass/components/_pass.vue";
 
 @Options({
   components: {
-    Moonlight,
+    Pass,
+    // Moonlight,
   },
 })
 export default class App extends Vue {}
