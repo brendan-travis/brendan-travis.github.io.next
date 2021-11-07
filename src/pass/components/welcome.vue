@@ -45,8 +45,9 @@ export default defineComponent({
   align-content: center;
   justify-content: center;
   flex-direction: column;
-  animation: fade-out 1s ease-out 5s forwards;
-  background: $col-base-3;
+  //animation: fade-out 1s ease-out 5s forwards;
+  animation: slide-down 1s ease-in 5s forwards;
+  background: $col-base-1;
 
   .centered-container {
     text-align: center;
@@ -54,6 +55,7 @@ export default defineComponent({
 
     p {
       opacity: 0;
+      color: $col-base-5;
     }
 
     p:nth-child(1) {
@@ -82,6 +84,15 @@ export default defineComponent({
     }
     100% {
       opacity: 0;
+    }
+  }
+
+  @keyframes slide-down {
+    0% {
+      top: 0;
+    }
+    100% {
+      top: 100%;
     }
   }
 }
