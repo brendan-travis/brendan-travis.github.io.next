@@ -45,7 +45,7 @@ export default defineComponent({
   align-content: center;
   justify-content: center;
   flex-direction: column;
-  animation: slide-left 1s ease-in 5s forwards;
+  animation: fade-out 1s ease-in 5s forwards;
   background: $col-base-1;
 
   .centered-container {
@@ -83,15 +83,6 @@ export default defineComponent({
     }
     100% {
       opacity: 0;
-    }
-  }
-
-  @keyframes slide-left {
-    0% {
-      width: 100%;
-    }
-    100% {
-      width: 0;
     }
   }
 }

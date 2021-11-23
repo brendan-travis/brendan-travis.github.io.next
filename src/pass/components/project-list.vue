@@ -1,16 +1,19 @@
 <template>
   <div class="container">
     <h2>Personal Projects</h2>
-    <div class="card">
-      <div class="image-placeholder"></div>
+    <a class="card" href="https://github.com/brendan-travis/api-playground">
+      <img class="image" src="@/assets/api_playground.png" />
       <div class="content">
         <h3>API Playground</h3>
         <p>A .NET API built for testing purposes</p>
         <p class="tags">.NET, Web API, Kubernetes, Docker</p>
       </div>
-    </div>
-    <div class="card">
-      <div class="image-placeholder"></div>
+    </a>
+    <a
+      class="card"
+      href="https://brendan-travis.github.io/dark-souls-iii.quest-tracker/"
+    >
+      <img class="image" src="@/assets/ds3_quest_checklist.jpg" />
       <div class="content">
         <h3>Dark Souls III Quest Checklist</h3>
         <p>
@@ -19,9 +22,12 @@
         </p>
         <p class="tags">TypeScript, Angular, PWA, HTML, SCSS</p>
       </div>
-    </div>
-    <div class="card">
-      <div class="image-placeholder"></div>
+    </a>
+    <a
+      class="card"
+      href="https://github.com/brendan-travis/rpgmv.real-time-clock"
+    >
+      <img class="image" src="@/assets/rpg_maker_mv_realtime_clock.jpg" />
       <div class="content">
         <h3>RPG Maker MV Plugin: Real-Time Clock</h3>
         <p>
@@ -39,7 +45,7 @@
         </p>
         <p class="tags">JavaScript, RPG Maker MV</p>
       </div>
-    </div>
+    </a>
   </div>
 </template>
 
@@ -53,9 +59,7 @@ export default defineComponent({});
 @import "../styles/variables";
 
 .container {
-  padding-left: 20%;
-  padding-right: 20%;
-  padding-bottom: 64px;
+  padding: 32px 20% 64px;
   margin-top: 100px;
   background: $col-base-3;
 
@@ -63,17 +67,18 @@ export default defineComponent({});
     margin-top: 24px;
     display: flex;
     flex-direction: row;
+    text-decoration: none;
+    color: unset;
 
     @media (max-width: $break-mobile-max) {
       flex-direction: column;
     }
 
-    .image-placeholder {
+    .image {
       min-height: 200px;
       min-width: 200px;
       max-height: 200px;
       max-width: 200px;
-      background: blue;
 
       @media (max-width: $break-mobile-max) {
         align-self: center;

@@ -1,6 +1,6 @@
 <template>
   <div class="top-container">
-    <div class="image-placeholder"></div>
+    <img class="image" src="@/assets/profile.jpg" />
     <h1>Brendan Travis</h1>
   </div>
   <div class="page-container">
@@ -54,15 +54,18 @@ export default defineComponent({
     }
   }
 
-  .image-placeholder {
-    width: 200px;
-    height: 200px;
-    background: blue;
+  .image {
+    width: 300px;
+    height: 300px;
     position: absolute;
     right: 20%;
-    top: calc(50vh - 100px);
+    border-radius: 150px;
+    top: calc(50vh - 150px);
 
     @media (max-width: $break-mobile-max) {
+      width: 200px;
+      height: 200px;
+      border-radius: 100px;
       top: 20%;
       right: calc(50vw - 100px);
     }

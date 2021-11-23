@@ -68,8 +68,7 @@ export default defineComponent({});
 
 .card {
   background: $col-base-3;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin: 64px 20% 0;
   padding: 24px;
   position: relative;
 
