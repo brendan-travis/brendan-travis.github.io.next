@@ -6,15 +6,28 @@
   <div class="page-container">
     <h2>Full-Stack Developer</h2>
     <p class="scroll-indicator">scroll down →</p>
-
-    <div style="height: 100vh"></div>
+    <about-me></about-me>
+    <work-timeline></work-timeline>
+    <project-list></project-list>
+    <siteFooter></siteFooter>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import aboutMe from "@/pass/components/about-me.vue";
+import workTimeline from "@/pass/components/work-timeline.vue";
+import projectList from "@/pass/components/project-list.vue";
+import siteFooter from "@/pass/components/site-footer.vue";
 
-export default defineComponent({});
+export default defineComponent({
+  components: {
+    aboutMe,
+    workTimeline,
+    projectList,
+    siteFooter,
+  },
+});
 </script>
 
 <style lang="scss" scoped>
@@ -46,7 +59,7 @@ export default defineComponent({});
     height: 200px;
     background: blue;
     position: absolute;
-    right: 10%;
+    right: 20%;
     top: calc(50vh - 100px);
 
     @media (max-width: $break-mobile-max) {
@@ -67,10 +80,12 @@ export default defineComponent({});
 
     @media (max-width: $break-mobile-max) {
       align-self: center;
+      margin-bottom: 33vh;
     }
 
     @media (min-width: $break-mobile-min) {
       margin-left: 20%;
+      margin-bottom: 50vh;
     }
   }
 
