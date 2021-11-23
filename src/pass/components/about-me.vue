@@ -73,6 +73,11 @@ export default defineComponent({});
   padding: 24px;
   position: relative;
 
+  @media (max-width: $break-mobile-max) {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
   h2 {
     color: $col-base-1;
   }
