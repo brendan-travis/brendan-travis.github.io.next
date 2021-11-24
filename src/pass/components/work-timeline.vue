@@ -6,16 +6,24 @@
       <div class="point-container">
         <div class="point"></div>
         <div>
-          <p>University of Huddersfield</p>
-          <p>2012-2016</p>
-          <p>Music Technology & Audio Systems</p>
-          <p>BSc with First Class Honours</p>
+          <h3>Answer <span>Digital</span></h3>
+          <p>Oct 2021 - Present</p>
+          <p>Senior Developer</p>
+          <br />
+          <p>Jan 2020 - Oct 2021</p>
+          <p>Level 2 Developer / Mid-Level Developer</p>
+          <br />
+          <p>Jan 2019 - Jan 2020</p>
+          <p>Level 1 Developer / Junior Developer</p>
+          <br />
+          <p>Oct 2018 - Jan 2019</p>
+          <p>Academy Developer</p>
         </div>
       </div>
       <div class="point-container">
         <div class="point"></div>
         <div>
-          <p>Eclipse Legal Systems Ltd</p>
+          <h3><span>Eclipse</span> Legal Systems Ltd</h3>
           <p>Sep 2016 - Oct 2018</p>
           <p>Project Consultant</p>
         </div>
@@ -23,18 +31,10 @@
       <div class="point-container">
         <div class="point"></div>
         <div>
-          <p>Answer Digital</p>
-          <p>Oct 2018 - Jan 2019</p>
-          <p>Academy Developer</p>
-          <br />
-          <p>Jan 2019 - Jan 2020</p>
-          <p>Level 1 Developer / Junior Developer</p>
-          <br />
-          <p>Jan 2020 - Oct 2021</p>
-          <p>Level 2 Developer / Mid-Level Developer</p>
-          <br />
-          <p>Oct 2021 - Present</p>
-          <p>Senior Developer</p>
+          <h3>University of <span>Huddersfield</span></h3>
+          <p>2012-2016</p>
+          <p>Music Technology & Audio Systems</p>
+          <p>BSc with First Class Honours</p>
         </div>
       </div>
     </div>
@@ -95,10 +95,20 @@ export default defineComponent({});
         border: 2px solid $col-base-5;
       }
 
+      h3 {
+        color: $col-base-5;
+        margin: 0;
+        padding-left: 16px;
+
+        span {
+          color: $col-primary;
+        }
+      }
+
       p {
         color: $col-base-5;
         margin: 0;
-        padding-left: 8px;
+        padding-left: 24px;
       }
     }
   }
